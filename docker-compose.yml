@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   tests:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     environment:
@@ -11,7 +11,7 @@ services:
         - /opt/vsts/work/_temp:/var/temp
 
   database:
-    image: mcr.microsoft.com/mssql/server:2017-CU8-ubuntu
+    image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
-        SA_PASSWORD: "P@ssW0rd!"
+        SA_PASSWORD: "e70dfc34!@#"
         ACCEPT_EULA: "Y"

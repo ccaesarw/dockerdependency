@@ -1,0 +1,16 @@
+pool:
+  name: Hosted Ubuntu 1604
+steps:
+  - task: DockerCompose@0
+    displayName: "Run a Docker Compose command"
+    inputs:
+      dockerComposeFile: "docker-compose.yml"
+      dockerComposeCommand: "up --abort-on-container-exit"
+
+  - task: PublishTestResults@2
+    displayName: "Publish Test Results  /opt/vsts/work/_temp/*.trx"
+    inputs:
+      testResultsFormat: VSTest
+      testResultsFiles: " /opt/vsts/work/_temp/*.trx"
+      mergeTestResults: true
+      failTaskOnFailedTests: true
